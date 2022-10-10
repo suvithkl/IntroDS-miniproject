@@ -1,4 +1,3 @@
 # IntroDS-miniproject
 
-testing testing
-more tests
+We are doomed :)
