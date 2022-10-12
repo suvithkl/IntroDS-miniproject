@@ -1,0 +1,5 @@
+dentists
+doctors
+therapy
+surgeons
+opticians

@@ -1,0 +1,14 @@
+repair
+auto
+hotels
+estate
+massage
+cleaning
+installation
+laundry
+plumbing
+gas
+transportation
+tattoo
+taxis
+parking

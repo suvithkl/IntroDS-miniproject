@@ -1,0 +1,5 @@
+spas
+salons
+nail
+groomers
+barbers

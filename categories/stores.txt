@@ -1,0 +1,12 @@
+clothing
+grocery
+delis
+furniture
+flowers
+gifts
+electronics
+jewelry
+drugstores
+books
+thrift
+vintage

@@ -1,0 +1,11 @@
+event
+sports
+education
+gyms
+parks
+tours
+pool
+theatre
+theater
+movies
+museums
