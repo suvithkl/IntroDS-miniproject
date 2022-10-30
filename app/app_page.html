@@ -3,16 +3,12 @@
 
     <head>
         <title> Best Business For You</title>
-        <link rel="stylesheet" href="style.css">
-        <!--link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" /-->
-        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-        <py-env>
-            - geopandas
-            - folium
-        </py-env>
     </head>
 
     <body>
+        <p><strong><span style="font-size:20px">Best Business For You</span></strong></p>
+
+        <p><strong>Activities:</strong></p>
 
         <p>Wordcloud for activities:</p>
         <p><img alt="" src="../images/activities_wordcloud.png" style="height:302px; width:286px" /></p>
@@ -29,6 +25,8 @@
         </form>
 
 
+        <p><strong>Beauty:</strong></p>
+
         <p>Wordcloud for beauty:</p>
         <p><img alt="" src="../images/beauty_wordcloud.png" style="height:302px; width:286px" /></p>
 
@@ -43,6 +41,8 @@
             <input type="submit" value="Show" />
         </form>
 
+
+        <p><strong>Food:</strong></p>
 
         <p>Wordcloud for food:</p>
         <p><img alt="" src="../images/food_wordcloud.png" style="height:302px; width:286px" /></p>
@@ -59,6 +59,8 @@
         </form>
 
 
+        <p><strong>Health:</strong></p>
+
         <p>Wordcloud for health:</p>
         <p><img alt="" src="../images/health_wordcloud.png" style="height:302px; width:286px" /></p>
 
@@ -73,6 +75,8 @@
             <input type="submit" value="Show" />
         </form>
 
+
+        <p><strong>Nightlife:</strong></p>
 
         <p>Wordcloud for nightlife:</p>
         <p><img alt="" src="../images/nightlife_wordcloud.png" style="height:302px; width:286px" /></p>
@@ -89,6 +93,8 @@
         </form>
 
 
+        <p><strong>Pets:</strong></p>
+
         <p>Wordcloud for pets:</p>
         <p><img alt="" src="../images/pets_wordcloud.png" style="height:302px; width:286px" /></p>
 
@@ -103,6 +109,8 @@
             <input type="submit" value="Show" />
         </form>
 
+
+        <p><strong>Services:</strong></p>
 
         <p>Wordcloud for services:</p>
         <p><img alt="" src="../images/services_wordcloud.png" style="height:302px; width:286px" /></p>
@@ -119,6 +127,8 @@
         </form>
 
 
+        <p><strong>Stores:</strong></p>
+
         <p>Wordcloud for stores:</p>
         <p><img alt="" src="../images/stores_wordcloud.png" style="height:302px; width:286px" /></p>
 
@@ -132,43 +142,6 @@
         <form action="stores_map.html" method="get">
             <input type="submit" value="Show" />
         </form>
-
-
-        <div id="mpl"></div>
-        <div id="map" style="width: 50%; height: 50%"></div>
-        
-        <py-script output="map">
-import geopandas as gpd
-import folium
-
-print('help')
-
-world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
-cities = gpd.read_file(gpd.datasets.get_path('naturalearth_cities'))
-
-m = world.explore(
-    column="pop_est",  # make choropleth based on "BoroName" column
-    scheme="naturalbreaks",  # use mapclassify's natural breaks scheme
-    legend=True, # show legend
-    k=10, # use 10 bins
-    legend_kwds=dict(colorbar=False), # do not use colorbar
-    name="countries" # name of the layer in the map
-)
-
-cities.explore(
-    m=m, # pass the map object
-    color="red", # use red color on all points
-    marker_kwds=dict(radius=10, fill=True), # make marker radius 10px with fill
-    tooltip="name", # show "name" column in the tooltip
-    tooltip_kwds=dict(labels=False), # do not show column label in the tooltip
-    name="cities" # name of the layer in the map
-)
-
-folium.TileLayer('Stamen Toner', control=True).add_to(m)  # use folium to add alternative tiles
-folium.LayerControl().add_to(m)  # use folium to add layer control
-
-m  # show map
-        </py-script>
 
     </body>
 
