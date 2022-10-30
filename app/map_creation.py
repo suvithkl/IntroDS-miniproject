@@ -5,10 +5,20 @@ import geopandas as gpd
 import folium
 import matplotlib
 import mapclassify
+import pandas as pd
+import shapely
 
 
 world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
 cities = gpd.read_file(gpd.datasets.get_path('naturalearth_cities'))
+
+activities = pd.read_json('../filut/activities_review.json')
+
+gdf = gpd.GeoDataFrame(activities.drop(['latitude', 'longitude'], axis=1),
+                       crs={'init': 'epsg:4326'},
+                       geometry=[shapely.geometry.Point(xy)
+                                for xy in zip(activities.longitude, activities.latitude)])
+
 
 m = world.explore(
     column="pop_est",  # make choropleth based on "BoroName" column
@@ -32,3 +42,5 @@ folium.TileLayer('Stamen Toner', control=True).add_to(m)  # use folium to add al
 folium.LayerControl().add_to(m)  # use folium to add layer control
 
 m  # show map
+
+m.save('activities_map.html')
