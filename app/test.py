@@ -1,5 +1,11 @@
+import sys
+sys.path.append('C:/Users/reett/AppData/Local/conda/conda')
+
 import geopandas as gpd
 import folium
+import matplotlib
+import mapclassify
+
 
 world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
 cities = gpd.read_file(gpd.datasets.get_path('naturalearth_cities'))
